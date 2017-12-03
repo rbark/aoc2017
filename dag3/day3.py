@@ -55,6 +55,20 @@ def get_next(spiral , coord):
         next_move = (x-1, y)
     return next_move
 
+def get_number(spiral, coord):
+    x, y = coord
+    number = 0
+    number += spiral[(x+1, y)]  #e
+    number += spiral[(x+1, y+1)] #ne
+    number += spiral[(x, y+1)] #n
+    number += spiral[(x-1, y+1)] #nw
+    number += spiral[(x-1, y)] #w
+    number += spiral[(x-1, y-1)] #sw
+    number += spiral[(x, y-1)] #s
+    number += spiral[(x+1, y-1)] #se
+    return number
+
+
 def part1(number):
 
     currentNumber = 1
@@ -66,7 +80,7 @@ def part1(number):
     spiral[coord] = currentNumber
     while currentNumber != number:
         currentNumber +=1
-        coord = get_next(spiral, coord )
+        coord = get_next(spiral, coord)
         spiral[coord] = currentNumber
     x, y = coord
 
@@ -74,5 +88,25 @@ def part1(number):
 
 
 
+
+def part2(number):
+
+    currentNumber = 1
+    coord=(0, 0)
+    spiral = defaultdict(int)
+    spiral[coord] = currentNumber
+    coord=(1, 0)
+    spiral[coord] = currentNumber
+    while currentNumber < number:
+        currentNumber +=1
+        coord = get_next(spiral, coord)
+        currentNumber = get_number(spiral, coord)
+        spiral[coord] = currentNumber
+    currentNumber = get_number(spiral, coord)
+    print(currentNumber)
+
+
+
 # spiralSplicer(277678)
-part1(277678)
+# part1(277678)
+part2(277678)
