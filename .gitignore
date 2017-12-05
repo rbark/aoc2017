@@ -102,3 +102,6 @@ ENV/
 
 # emacs
 *~
+
+.idea/
+.idea/workspace.xml

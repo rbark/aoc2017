@@ -6,7 +6,6 @@ with open('input.txt') as file:
 
 current_pos = 0
 
-
 def part1():
     global instructions, current_pos, jumps
     try:
