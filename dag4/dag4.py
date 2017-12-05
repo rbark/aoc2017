@@ -2,13 +2,13 @@ words = []
 
 valid_lines = 0
 
-# with open("input.txt") as f:
-#     for line in f.readlines():
-#         wordlist = line.strip().split(' ')
-#         wordset = set(wordlist)
-#         if len(wordset) == len(wordlist):
-#             valid_lines += 1
-#
+with open("input.txt") as f:
+    for line in f.readlines():
+        wordlist = line.strip().split(' ')
+        wordset = set(wordlist)
+        if len(wordset) == len(wordlist):
+            valid_lines += 1
+
 valid_passphrase = 0
 
 with open("input.txt") as f:
@@ -20,5 +20,5 @@ with open("input.txt") as f:
             valid_passphrase += 1
 
 
-# print(valid_lines)
+print(valid_lines)
 print(valid_passphrase)
